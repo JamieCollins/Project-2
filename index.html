@@ -8,31 +8,39 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Tv and Movie Quiz</title>
 </head>
+
 <body>
-    <!-- game container -->
+    <!-- container -->
     <div class="container">
+
         <!-- game title -->
         <div class="game-title">
-            <h1>Game Title</h1>
+            <h1>Tv and Movie Quiz</h1>
         </div>
+        
         <!-- game score -->
         <div class="score-area">
-            <p class="scores">Correct Answers <span id="score">0</span></p>
-            <p class="scores">Incorrect Answers <span id="incorrect">0</span></p>
+            <p class="scores">Correct Answers: <span id="score">0</span></p>
+            <p class="scores">Incorrect Answers: <span id="incorrect">0</span></p>
         </div>
-        <!-- game question -->
-        <div class="question-area">
-            <h1 class="quiz-que">Choose an option between A, B, C and D.</h1>
+
+        <!-- quiz container -->
+        <div class="quiz-box">
+            <!-- game question -->
+            <div class="question-area">
+                <h1 class="quiz-que">For what movie did Steven Spielberg win his first Oscar for Best Director?</h1>
+            </div>
+            <!-- answer options -->
+            <div class="answer-area">
+                <button data-type="a" class="btn">Schindler's List </button>
+                <button data-type="b" class="btn">Jaws</button>
+                <button data-type="c" class="btn">E.T.</button>
+                <button data-type="d" class="btn">Saving Private Ryan</button>
+            </div>
         </div>
-        <!-- answer options -->
-        <div class="answer-area">
-            <button data-type="a" class="btn">Option 1</button>
-            <button data-type="b" class="btn">Option 2</button>
-            <button data-type="c" class="btn">Option 3</button>
-            <button data-type="d" class="btn">Option 4</button>
-        </div>
+
         <!-- answer submit button -->
-        <button data-type="submit" class="btn">Submit Answer</button>
+        <button data-type="submit" class="btn submit">Submit Answer</button>
     </div>
 
     <!-- script -->
