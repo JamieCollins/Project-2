@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 32px;
     text-align: center;
 }
 
@@ -36,7 +36,7 @@ h1 {
 }
 
 /* answer options */
-.answer-area {
+#answer-area {
     background-color: blueviolet;
 }
 

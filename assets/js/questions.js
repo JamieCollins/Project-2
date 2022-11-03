@@ -16,5 +16,5 @@ let questions = [
         question: "Who is the only actor to receive an Oscar nomination for acting in a Lord of the Rings movie?",
         options: ["Ian McKellen", "Elijah Wood", "Viggo Mortensen", "Orlando Bloom"],
         answer: "Ian McKellen",
-    }
+    },
 ]
