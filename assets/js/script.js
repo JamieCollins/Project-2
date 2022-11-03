@@ -11,36 +11,52 @@ let optionB = document.getElementById("option-b")
 let optionC = document.getElementById("option-c")
 let optionD = document.getElementById("option-d")
 
+let queText = document.getElementById("quiz-que")
 
 function selectOption() {
 
-    let reponse = this.innerHTML
+    clearOptions();
+    
+    response = this.innerHTML;
+
     this.style.backgroundColor = "lightblue";
 
 }
 
 function checkAnswer() {
 
-    let queText = document.getElementById("quiz-que")
+    clearOptions();
 
-    for (let i = 0; i < questions.length; i++){
+    let i = 0; i < questions.length; i++;
+
         queText.innerHTML = questions[i].question;
         optionA.innerHTML = questions[i].options[0];
         optionB.innerHTML = questions[i].options[1];
         optionC.innerHTML = questions[i].options[2];
         optionD.innerHTML = questions[i].options[3];
-    };
 
-    let correctScore = document.getElementById("score")
-    let incorrectScore = document.getElementById("incorrect")
+    let correctScore = document.getElementById("score");
+    let incorrectScore = document.getElementById("incorrect");
 
     if (response === questions[i].answer){
-        correctScore++;
+        correctScore.innerHTML++;
         alert ("Congratulations, you got it right!");
-    } else {
-        incorrectScore++;
+    }   else if (response === ""){
+        alert ("Please choose an answer.");
+    }   else {
+        incorrectScore.innerHTML++;
         alert ("Unfortunately that was not the correct answer.");
-    }
+    } 
+    
+    response = "";
 
 }
 
+function clearOptions () {
+
+    optionA.style.backgroundColor = "white";
+    optionB.style.backgroundColor = "white";
+    optionC.style.backgroundColor = "white";
+    optionD.style.backgroundColor = "white";
+
+}
