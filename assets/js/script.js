@@ -12,6 +12,7 @@ let optionA = document.getElementById("option-a")
 let optionB = document.getElementById("option-b")
 let optionC = document.getElementById("option-c")
 let optionD = document.getElementById("option-d")
+let submit = document.getElementById("submit")
 
 let queText = document.getElementById("quiz-que")
 
@@ -25,7 +26,7 @@ function selectOption() {
     
     response = this.innerHTML;
 
-    this.style.backgroundColor = "lightblue";
+    this.style.backgroundColor = "#4dff4d";
 
 }
 
@@ -52,14 +53,14 @@ function checkAnswer() {
         correctScore.innerHTML++;
         alert ("Congratulations, you got it right!");
         i++;
-        getQuestion();
+        endQuiz();
     }   else if (response === ""){
         alert ("Please choose an answer.");
     }   else {
         incorrectScore.innerHTML++;
         alert ("Unfortunately that was not the correct answer.");
         i++;
-        getQuestion();
+        endQuiz();
     } 
     
     response = "";
@@ -69,9 +70,26 @@ function checkAnswer() {
 // clears highlighted answer options
 function clearOptions () {
 
-    optionA.style.backgroundColor = "white";
-    optionB.style.backgroundColor = "white";
-    optionC.style.backgroundColor = "white";
-    optionD.style.backgroundColor = "white";
+    optionA.style.backgroundColor = "#531aff";
+    optionB.style.backgroundColor = "#531aff";
+    optionC.style.backgroundColor = "#531aff";
+    optionD.style.backgroundColor = "#531aff";
+
+}
+
+function endQuiz () {
+
+    if (i === questions.length){
+        submit.innerHTML = "Finish Quiz!"
+        submit.addEventListener("click", quizResults)
+    } else {
+        getQuestion();
+    }
+
+}
+
+function quizResults () {
+
+    alert ("Congratulations! you scored ${correctScore} out of (${correctScore} + ${incorrectScore})");
 
 }

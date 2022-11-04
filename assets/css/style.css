@@ -6,12 +6,14 @@
 }
 
 body {
-    background-color: #48A9A6;
+    background-color: #8c66ff;
 }
 
 h1 {
-    font-size: 30px;
+    font-size: 1.8rem;
     text-align: center;
+    color: #ffffff;
+    margin-top: 5vh;
 }
 
 /* container */
@@ -30,7 +32,7 @@ h1 {
 
 /* question */
 .question-area {
-    background-color: #E4DFDA;
+    background-color: #8c66ff;
     height: 15vh;
 }
 
@@ -45,10 +47,12 @@ h1 {
     width: 100%;
     text-align: center;
     font-size: 20px;
+    background-color: #531aff;
+    color: #ffffff;
 }
 
 button:hover {
-    background-color: aliceblue;
+    background-color: #794dff;
     scale: 1.1;
 }
 
@@ -59,4 +63,15 @@ button:hover {
     width: 50%;
     float: right;
     top: 50px;
+}
+
+/* game title */
+.game-title {
+
+}
+
+/* score area */
+.score-area {
+    font-size: 1.2rem;
+    color: #ece6ff;
 }
