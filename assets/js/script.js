@@ -4,6 +4,7 @@ document.getElementById("option-c").addEventListener("click", selectOption)
 document.getElementById("option-d").addEventListener("click", selectOption)
 
 document.getElementById("submit").addEventListener("click", checkAnswer)
+document.addEventListener("DOMContentLoaded", getQuestion)
 
 
 let optionA = document.getElementById("option-a")
@@ -12,6 +13,9 @@ let optionC = document.getElementById("option-c")
 let optionD = document.getElementById("option-d")
 
 let queText = document.getElementById("quiz-que")
+
+var i = 0;
+var response = "";
 
 function selectOption() {
 
@@ -23,11 +27,7 @@ function selectOption() {
 
 }
 
-function checkAnswer() {
-
-    clearOptions();
-
-    let i = 0; i < questions.length; i++;
+function getQuestion () {
 
         queText.innerHTML = questions[i].question;
         optionA.innerHTML = questions[i].options[0];
@@ -35,20 +35,31 @@ function checkAnswer() {
         optionC.innerHTML = questions[i].options[2];
         optionD.innerHTML = questions[i].options[3];
 
+}
+
+function checkAnswer() {
+
+    clearOptions();
+
     let correctScore = document.getElementById("score");
     let incorrectScore = document.getElementById("incorrect");
 
     if (response === questions[i].answer){
         correctScore.innerHTML++;
         alert ("Congratulations, you got it right!");
+        i++;
+        getQuestion();
     }   else if (response === ""){
         alert ("Please choose an answer.");
     }   else {
         incorrectScore.innerHTML++;
         alert ("Unfortunately that was not the correct answer.");
+        i++;
+        getQuestion();
     } 
     
     response = "";
+    
 
 }
 

@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: lightgreen;
+    background-color: #48A9A6;
 }
 
 h1 {
@@ -25,13 +25,12 @@ h1 {
 /* quiz box container */
 .quiz-box {
     width: 800px;
-    background-color: blue;
     height: 60vh;
 }
 
 /* questions */
 .question-area {
-    background-color: yellowgreen;
+    background-color: #E4DFDA;
     height: 15vh;
 }
 
