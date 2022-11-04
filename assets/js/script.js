@@ -1,11 +1,12 @@
+// recieves first question from array once document has loaded
+document.addEventListener("DOMContentLoaded", getQuestion)
+
+// answer option and submit button event listeners
 document.getElementById("option-a").addEventListener("click", selectOption)
 document.getElementById("option-b").addEventListener("click", selectOption)
 document.getElementById("option-c").addEventListener("click", selectOption)
 document.getElementById("option-d").addEventListener("click", selectOption)
-
 document.getElementById("submit").addEventListener("click", checkAnswer)
-document.addEventListener("DOMContentLoaded", getQuestion)
-
 
 let optionA = document.getElementById("option-a")
 let optionB = document.getElementById("option-b")
@@ -17,6 +18,7 @@ let queText = document.getElementById("quiz-que")
 var i = 0;
 var response = "";
 
+// highlights option selected by user and assigns data to response
 function selectOption() {
 
     clearOptions();
@@ -27,6 +29,7 @@ function selectOption() {
 
 }
 
+// gets question from array via index
 function getQuestion () {
 
         queText.innerHTML = questions[i].question;
@@ -37,6 +40,7 @@ function getQuestion () {
 
 }
 
+// checks user answer against stored array answer, increments score accordingly, gets next question, clears user answer
 function checkAnswer() {
 
     clearOptions();
@@ -60,9 +64,9 @@ function checkAnswer() {
     
     response = "";
     
-
 }
 
+// clears highlighted answer options
 function clearOptions () {
 
     optionA.style.backgroundColor = "white";
