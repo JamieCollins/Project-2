@@ -7,12 +7,14 @@ document.getElementById("option-b").addEventListener("click", selectOption)
 document.getElementById("option-c").addEventListener("click", selectOption)
 document.getElementById("option-d").addEventListener("click", selectOption)
 document.getElementById("submit").addEventListener("click", checkAnswer)
+document.getElementById("next-que").addEventListener("click", nextQue)
 
 let optionA = document.getElementById("option-a")
 let optionB = document.getElementById("option-b")
 let optionC = document.getElementById("option-c")
 let optionD = document.getElementById("option-d")
 let submit = document.getElementById("submit")
+let nextQuestion = document.getElementById("next-que")
 
 let queText = document.getElementById("quiz-que")
 
@@ -51,19 +53,32 @@ function checkAnswer() {
 
     if (response === questions[i].answer){
         correctScore.innerHTML++;
-        alert ("Congratulations, you got it right!");
         i++;
+        document.getElementById("container").style.display = "none";
+        document.getElementById("answer-response-cont").style.display = "contents";
+        document.getElementById("text-response").innerHTML = "Congratulations, that was the correct answer!";
         endQuiz();
     }   else if (response === ""){
         alert ("Please choose an answer.");
     }   else {
         incorrectScore.innerHTML++;
-        alert ("Unfortunately that was not the correct answer.");
+        document.getElementById("container").style.display = "none";
+        document.getElementById("answer-response-cont").style.display = "contents";
+        document.getElementById("text-response").innerHTML = "Unfortunately that was not the correct answer.";
         i++;
         endQuiz();
     } 
     
     response = "";
+    
+}
+
+// Gets next question, displays quiz box remove answer response
+function nextQue () {
+
+    getQuestion();
+    document.getElementById("answer-response-cont").style.display = "none";
+    document.getElementById("container").style.display = "contents";
     
 }
 
@@ -77,19 +92,21 @@ function clearOptions () {
 
 }
 
+// checks if current question is the last
 function endQuiz () {
 
     if (i === questions.length){
-        submit.innerHTML = "Finish Quiz!"
-        submit.addEventListener("click", quizResults)
+        nextQuestion.innerHTML = "Finish Quiz!"
+        nextQuestion.addEventListener("click", quizResults)
     } else {
         getQuestion();
     }
 
 }
 
+// ends quiz displays results
 function quizResults () {
 
-    alert ("Congratulations! you scored ${correctScore} out of (${correctScore} + ${incorrectScore})");
+    alert ("Congratulations! you scored");
 
 }
