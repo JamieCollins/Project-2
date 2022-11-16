@@ -23,7 +23,12 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+}
+
+/* score area */
+.score-area {
+    font-size: 1.2rem;
+    color: #ece6ff;
 }
 
 /* quiz box container */
@@ -35,12 +40,13 @@ h1 {
 /* question */
 .question-area {
     background-color: #8c66ff;
-    height: 15vh;
+    height: 20vh;
 }
 
 /* answer options */
 #answer-area {
-    background-color: blueviolet;
+    background-color: #8c66ff;
+    overflow: visible;
 }
 
 /* button styling */
@@ -51,11 +57,11 @@ h1 {
     font-size: 20px;
     background-color: #531aff;
     color: #ffffff;
+    scale: .9;
 }
 
 button:hover {
-    background-color: #794dff;
-    scale: 1.1;
+    scale: 1;
 }
 
 /* submit button*/
@@ -67,23 +73,19 @@ button:hover {
     top: 50px;
 }
 
-/* score area */
-.score-area {
-    font-size: 1.2rem;
-    color: #ece6ff;
-}
 
 /* answer response container */
 #answer-response-cont {
-    height: 60vh;
+    height: 100vh;
     overflow: hidden;
     display: none;
+    position: relative;
 }
 
 /* text response */
 #answer-text-cont {
     position: relative;
-    top: 10%;
+    top: 20%;
 }
 
 /* next question button container */
