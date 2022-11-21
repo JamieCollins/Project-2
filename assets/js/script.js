@@ -1,7 +1,8 @@
 // recieves first question from array once document has loaded
-document.addEventListener("DOMContentLoaded", getQuestion);
+// document.addEventListener("DOMContentLoaded", );
 
 // answer option and submit button event listeners
+document.getElementById("start").addEventListener("click", getQuestion);
 document.getElementById("option-a").addEventListener("click", selectOption);
 document.getElementById("option-b").addEventListener("click", selectOption);
 document.getElementById("option-c").addEventListener("click", selectOption);
@@ -55,12 +56,15 @@ function clearOptions () {
 // gets question from array via index
 function getQuestion () {
 
-        queText.innerHTML = questions[i].question;
-        optionA.innerHTML = questions[i].options[0];
-        optionB.innerHTML = questions[i].options[1];
-        optionC.innerHTML = questions[i].options[2];
-        optionD.innerHTML = questions[i].options[3];
-        nextQuestion.innerHTML = "Next question";
+    document.getElementById("start-screen").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    queText.innerHTML = questions[i].question;
+    optionA.innerHTML = questions[i].options[0];
+    optionB.innerHTML = questions[i].options[1];
+    optionC.innerHTML = questions[i].options[2];
+    optionD.innerHTML = questions[i].options[3];
+    nextQuestion.innerHTML = "Next question";
+        
 
 }
 
@@ -118,8 +122,10 @@ function quizResults () {
     document.getElementById("text-response").innerHTML = `Congratulations you scored ${correctScore.innerHTML} out of ${i}!`;
     nextQuestion.innerHTML = "Restart quiz";
     nextQuestion.addEventListener("click", getQuestion);
-    i = 0;
     correctScore.innerHTML = "0";
     incorrectScore.innerHTML = "0";
+    i = 0;
 
 }
+
+// start quiz function

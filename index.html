@@ -18,31 +18,49 @@
             <h1>Tv and Movie Quiz</h1>
         </div>
 
-        <!-- game score -->
-        <div class="score-area">
-            <p class="scores">Correct Answers: <span id="score">0</span></p>
-            <p class="scores">Incorrect Answers: <span id="incorrect">0</span></p>
+        <!-- start screen -->
+        <div id="start-screen">
+
+            <!-- instructions -->
+            <div>
+                <h2 id="instructions">Game instructions: Please choose one of the four answer options and once it is selected please submit your answer, 
+                    you will then be told if your answer was correct or not and your score will be updated accordingly.</h2>
+            </div>
+
+            <!-- start button -->
+            <button class="btn" id="start">Start Quiz</button>
+
         </div>
 
-        <!-- quiz container -->
-        <div class="quiz-box">
+        <!-- game -->
+        <div id="game">
 
-            <!-- game question -->
-            <div class="question-area">
-                <h1 id="quiz-que"></h1>
+            <!-- game score -->
+            <div class="score-area">
+                <p class="scores">Correct Answers: <span id="score">0</span></p>
+                <p class="scores">Incorrect Answers: <span id="incorrect">0</span></p>
             </div>
 
-            <!-- answer options -->
-            <div id="answer-area">
-                <button class="btn"id="option-a"></button>
-                <button class="btn"id="option-b"></button>
-                <button class="btn"id="option-c"></button>
-                <button class="btn"id="option-d"></button>
+            <!-- quiz container -->
+            <div class="quiz-box">
+
+                <!-- game question -->
+                <div class="question-area">
+                    <h1 id="quiz-que"></h1>
+                </div>
+
+                <!-- answer options -->
+                <div id="answer-area">
+                    <button class="btn"id="option-a"></button>
+                    <button class="btn"id="option-b"></button>
+                    <button class="btn"id="option-c"></button>
+                    <button class="btn"id="option-d"></button>
+                </div>
+
+                <!-- answer submit button -->
+                <button class="btn" id="submit">Submit Answer</button>
+
             </div>
-
-            <!-- answer submit button -->
-            <button class="btn" id="submit">Submit Answer</button>
-
         </div>
     </div>
 
