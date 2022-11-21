@@ -4,14 +4,13 @@ document.getElementById("option-a").addEventListener("click", selectOption);
 document.getElementById("option-b").addEventListener("click", selectOption);
 document.getElementById("option-c").addEventListener("click", selectOption);
 document.getElementById("option-d").addEventListener("click", selectOption);
-document.getElementById("next-que").addEventListener("click", nextQue);
 
 // answer options and buttons
 let optionA = document.getElementById("option-a");
 let optionB = document.getElementById("option-b");
 let optionC = document.getElementById("option-c");
 let optionD = document.getElementById("option-d");
-let nextQuestion = document.getElementById("next-que");
+let finQuiz = document.getElementById("fin-quiz");
 
 //question text
 let queText = document.getElementById("quiz-que");
@@ -26,23 +25,6 @@ var i = 0;
 // response variable
 var response = "";
 
-// answer submission timout and correct/incorrect answer highlight
-function myTimeout() {
-
-    if (optionA.innerHTML === questions[i].answer){
-        optionA.style.backgroundColor = "green";
-    }   else if (optionB.innerHTML === questions[i].answer){
-        optionB.style.backgroundColor = "green";
-    }   else if (optionC.innerHTML === questions[i].answer){
-        optionC.style.backgroundColor = "green";
-    }   else if (optionD.innerHTML === questions[i].answer){
-        optionD.style.backgroundColor = "green";
-    }   else {
-        alert ("Please choose an answer.");
-    }
-
-    timeout = setTimeout(checkAnswer, 1000);
-  }
 
 // highlights option selected by user and assigns data to response
 function selectOption() {
@@ -50,11 +32,44 @@ function selectOption() {
     clearOptions();
     
     response = this.innerHTML;
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = "blue";
     this.style.border = "8px solid yellow";
+    if (response === questions[i].answer){
+        this.style.backgroundColor = "green";
+        this.style.border = "8px solid yellow";
+    }   else {
+        this.style.backgroundColor = "red";
+        this.style.border = "8px solid yellow";
+    } 
+    selectOptionTimeout();
 
-    myTimeout();
+}
 
+// answer submission timout and correct/incorrect answer highlight
+function selectOptionTimeout() {
+    timeout = setTimeout(myTimeout, 1000);
+}
+
+// answer submission timout and correct/incorrect answer highlight
+function myTimeout() {
+
+    if (optionA.innerHTML === questions[i].answer){
+        optionA.style.backgroundColor = "green";
+        optionA.style.borderColor = "green";
+    }   else if (optionB.innerHTML === questions[i].answer){
+        optionB.style.backgroundColor = "green";
+        optionB.style.borderColor = "green";
+    }   else if (optionC.innerHTML === questions[i].answer){
+        optionC.style.backgroundColor = "green";
+        optionC.style.borderColor = "green";
+    }   else if (optionD.innerHTML === questions[i].answer){
+        optionD.style.backgroundColor = "green";
+        optionD.style.borderColor = "green";
+    }   else {
+        alert ("Please choose an answer.");
+    }
+
+    timeout = setTimeout(checkAnswer, 1000);
 }
 
 // clears highlighted answer options
@@ -77,7 +92,6 @@ function getQuestion () {
     optionB.innerHTML = questions[i].options[1];
     optionC.innerHTML = questions[i].options[2];
     optionD.innerHTML = questions[i].options[3];
-    nextQuestion.innerHTML = "Next question";
     optionA.style.border = "none";
     optionB.style.border = "none";
     optionC.style.border = "none";
@@ -107,6 +121,7 @@ function checkAnswer() {
     } 
     
     response = "";
+    timeout = setTimeout(nextQue, 2000);
     
 }
 
@@ -123,22 +138,36 @@ function nextQue () {
 function endQuiz () {
 
     if (i === questions.length){
-        nextQuestion.innerHTML = "Finish Quiz!";
-        nextQuestion.addEventListener("click", quizResults);
+        document.getElementById("fin-quiz-cont").style.display = "block";
+        document.getElementById("answer-response-cont").style.display = "block";
+        finQuiz.style.display = "block";
+        finQuiz.innerHTML = "Finish Quiz";
+        finQuiz.addEventListener("click", quizResults);
     } else {
         getQuestion();
     }
 
 }
 
-// ends quiz, displays results, displays restart quiz button, resets question counter
+// ends quiz, displays results, displays restart quiz button
 function quizResults () {
 
     document.getElementById("text-response").innerHTML = `Congratulations you scored ${correctScore.innerHTML} out of ${i}!`;
-    nextQuestion.innerHTML = "Restart quiz";
-    nextQuestion.addEventListener("click", getQuestion);
-    correctScore.innerHTML = "0";
-    incorrectScore.innerHTML = "0";
-    i = 0;
+    finQuiz.innerHTML = "Restart quiz";
+    finQuiz.addEventListener("click", resetQuiz);
 
+}
+
+// resets question counter and score and restarts game
+function resetQuiz () {
+
+    document.getElementById("answer-response-cont").style.display = "none";
+    document.getElementById("container").style.display = "block";
+    finQuiz.style.display = "none";
+    i = 0;
+    incorrectScore.innerHTML = "0";
+    correctScore.innerHTML = "0";
+    finQuiz.removeEventListener("click", resetQuiz);
+    getQuestion ();
+    
 }

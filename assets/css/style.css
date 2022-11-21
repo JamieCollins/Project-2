@@ -111,12 +111,13 @@ button:hover {
 }
 
 /* next question button container */
-#next-que-cont {
+#fin-quiz-cont {
     height: 60vh;
+    display: none;
 }
 
 /* next question button */
-#next-que {
+#fin-quiz {
     position: relative;
     top: 30vh;
     width: 30%;
