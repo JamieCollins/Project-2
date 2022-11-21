@@ -66,7 +66,9 @@ h1 {
 /* button styling */
 .btn {
     height: 12vh;
-    width: 100%;
+    width: 75%;
+    position: relative;
+    left: 10%;
     text-align: center;
     font-size: 20px;
     background-color: #531aff;
@@ -117,7 +119,33 @@ button:hover {
 #next-que {
     position: relative;
     top: 30vh;
-    width: 50%;
-    left: 25%;
+    width: 30%;
+    left: 35%;
     text-align: center;
+}
+
+/* media queries */
+
+@media screen and (max-width: 800px){
+    .quiz-box {
+        width: 100vw;
+    }
+    h1 {
+        font-size: 1.2rem;
+    }
+    #instructions {
+        font-size: 1rem;
+    }
+    #quiz-que {
+        width: 75%;
+        position: relative;
+        left: 12.5%;
+    }
+    .score-area {
+        text-align: center;
+        margin-top: 3vh;
+    }
+    .scores {
+        font-size: .9rem;
+    }
 }
