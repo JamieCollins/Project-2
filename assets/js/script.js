@@ -1,13 +1,9 @@
-// recieves first question from array once document has loaded
-// document.addEventListener("DOMContentLoaded", );
-
 // answer option and submit button event listeners
 document.getElementById("start").addEventListener("click", getQuestion);
 document.getElementById("option-a").addEventListener("click", selectOption);
 document.getElementById("option-b").addEventListener("click", selectOption);
 document.getElementById("option-c").addEventListener("click", selectOption);
 document.getElementById("option-d").addEventListener("click", selectOption);
-document.getElementById("submit").addEventListener("click", checkAnswer);
 document.getElementById("next-que").addEventListener("click", nextQue);
 
 // answer options and buttons
@@ -31,6 +27,33 @@ var i = 0;
 // response variable
 var response = "";
 
+// answer submission timout and correct/incorrect answer highlight
+function myTimeout() {
+    if (optionA.innerHTML === questions[i].answer && response === questions[i].answer){
+        optionA.style.backgroundColor = "green";
+        optionA.style.border = "8px solid yellow";
+    }   else if (optionB.innerHTML === questions[i].answer && response === questions[i].answer){
+        optionB.style.backgroundColor = "green";
+        optionB.style.border = "8px solid yellow";
+    }   else if (optionC.innerHTML === questions[i].answer && response === questions[i].answer){
+        optionC.style.backgroundColor = "green";
+        optionC.style.border = "8px solid yellow";
+    }   else if (optionD.innerHTML === questions[i].answer && response === questions[i].answer){
+        optionD.style.backgroundColor = "green";
+        optionD.style.border = "8px solid yellow";
+    }   else if (optionA.innerHTML === questions[i].answer){
+        optionA.style.backgroundColor = "green";
+    }   else if (optionB.innerHTML === questions[i].answer){
+        optionB.style.backgroundColor = "green";
+    }   else if (optionC.innerHTML === questions[i].answer){
+        optionC.style.backgroundColor = "green";
+    }   else if (optionD.innerHTML === questions[i].answer){
+        optionD.style.backgroundColor = "green";
+    }   else {
+        alert ("Please choose an answer.");
+    }
+    timeout = setTimeout(checkAnswer, 3000);
+  }
 
 // highlights option selected by user and assigns data to response
 function selectOption() {
@@ -39,7 +62,9 @@ function selectOption() {
     
     response = this.innerHTML;
 
-    this.style.backgroundColor = "#00b300";
+    this.style.backgroundColor = "red";
+
+    myTimeout();
 
 }
 
@@ -58,12 +83,17 @@ function getQuestion () {
 
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game").style.display = "block";
+    document.getElementById("submit").style.display = "none";
     queText.innerHTML = questions[i].question;
     optionA.innerHTML = questions[i].options[0];
     optionB.innerHTML = questions[i].options[1];
     optionC.innerHTML = questions[i].options[2];
     optionD.innerHTML = questions[i].options[3];
     nextQuestion.innerHTML = "Next question";
+    optionA.style.border = "none";
+    optionB.style.border = "none";
+    optionC.style.border = "none";
+    optionD.style.border = "none";
         
 
 }
@@ -80,8 +110,6 @@ function checkAnswer() {
         document.getElementById("answer-response-cont").style.display = "block";
         document.getElementById("text-response").innerHTML = "Congratulations, that was the correct answer!";
         endQuiz();
-    }   else if (response === ""){
-        alert ("Please choose an answer.");
     }   else {
         incorrectScore.innerHTML++;
         document.getElementById("container").style.display = "none";
@@ -127,5 +155,3 @@ function quizResults () {
     i = 0;
 
 }
-
-// start quiz function
