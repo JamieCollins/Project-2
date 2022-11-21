@@ -11,7 +11,6 @@ let optionA = document.getElementById("option-a");
 let optionB = document.getElementById("option-b");
 let optionC = document.getElementById("option-c");
 let optionD = document.getElementById("option-d");
-let submit = document.getElementById("submit");
 let nextQuestion = document.getElementById("next-que");
 
 //question text
@@ -29,19 +28,8 @@ var response = "";
 
 // answer submission timout and correct/incorrect answer highlight
 function myTimeout() {
-    if (optionA.innerHTML === questions[i].answer && response === questions[i].answer){
-        optionA.style.backgroundColor = "green";
-        optionA.style.border = "8px solid yellow";
-    }   else if (optionB.innerHTML === questions[i].answer && response === questions[i].answer){
-        optionB.style.backgroundColor = "green";
-        optionB.style.border = "8px solid yellow";
-    }   else if (optionC.innerHTML === questions[i].answer && response === questions[i].answer){
-        optionC.style.backgroundColor = "green";
-        optionC.style.border = "8px solid yellow";
-    }   else if (optionD.innerHTML === questions[i].answer && response === questions[i].answer){
-        optionD.style.backgroundColor = "green";
-        optionD.style.border = "8px solid yellow";
-    }   else if (optionA.innerHTML === questions[i].answer){
+
+    if (optionA.innerHTML === questions[i].answer){
         optionA.style.backgroundColor = "green";
     }   else if (optionB.innerHTML === questions[i].answer){
         optionB.style.backgroundColor = "green";
@@ -52,7 +40,8 @@ function myTimeout() {
     }   else {
         alert ("Please choose an answer.");
     }
-    timeout = setTimeout(checkAnswer, 3000);
+
+    timeout = setTimeout(checkAnswer, 1000);
   }
 
 // highlights option selected by user and assigns data to response
@@ -61,8 +50,8 @@ function selectOption() {
     clearOptions();
     
     response = this.innerHTML;
-
     this.style.backgroundColor = "red";
+    this.style.border = "8px solid yellow";
 
     myTimeout();
 
@@ -78,12 +67,11 @@ function clearOptions () {
 
 }
 
-// gets question from array via index
+// gets question from array via index  
 function getQuestion () {
 
     document.getElementById("start-screen").style.display = "none";
     document.getElementById("game").style.display = "block";
-    document.getElementById("submit").style.display = "none";
     queText.innerHTML = questions[i].question;
     optionA.innerHTML = questions[i].options[0];
     optionB.innerHTML = questions[i].options[1];
@@ -95,7 +83,6 @@ function getQuestion () {
     optionC.style.border = "none";
     optionD.style.border = "none";
         
-
 }
 
 // checks user answer against stored array answer, increments score accordingly, gets next question, clears user answer
