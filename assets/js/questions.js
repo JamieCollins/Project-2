@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
     {
         number: 1,
         question: "For what movie did Steven Spielberg win his first Oscar for Best Director?",

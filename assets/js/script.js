@@ -1,9 +1,6 @@
 // answer option and submit button event listeners
 document.getElementById("start").addEventListener("click", getQuestion);
-document.getElementById("option-a").addEventListener("click", selectOption);
-document.getElementById("option-b").addEventListener("click", selectOption);
-document.getElementById("option-c").addEventListener("click", selectOption);
-document.getElementById("option-d").addEventListener("click", selectOption);
+
 
 // answer options and buttons
 let optionA = document.getElementById("option-a");
@@ -25,6 +22,25 @@ var i = 0;
 // response variable
 var response = "";
 
+// answer event listeners
+function optionSelect () {
+
+    document.getElementById("option-a").addEventListener("click", selectOption);
+    document.getElementById("option-b").addEventListener("click", selectOption);
+    document.getElementById("option-c").addEventListener("click", selectOption);
+    document.getElementById("option-d").addEventListener("click", selectOption);
+
+}
+
+// removes answer event listeners once option is submitted
+function removeOptionSelect () {
+
+    document.getElementById("option-a").removeEventListener("click", selectOption);
+    document.getElementById("option-b").removeEventListener("click", selectOption);
+    document.getElementById("option-c").removeEventListener("click", selectOption);
+    document.getElementById("option-d").removeEventListener("click", selectOption);
+
+}
 
 // highlights option selected by user and assigns data to response
 function selectOption() {
@@ -32,15 +48,15 @@ function selectOption() {
     clearOptions();
     
     response = this.innerHTML;
-    this.style.backgroundColor = "blue";
-    this.style.border = "8px solid yellow";
     if (response === questions[i].answer){
         this.style.backgroundColor = "green";
         this.style.border = "8px solid yellow";
     }   else {
         this.style.backgroundColor = "red";
         this.style.border = "8px solid yellow";
-    } 
+    }
+
+    removeOptionSelect();
     selectOptionTimeout();
 
 }
@@ -92,6 +108,7 @@ function getQuestion () {
     optionB.innerHTML = questions[i].options[1];
     optionC.innerHTML = questions[i].options[2];
     optionD.innerHTML = questions[i].options[3];
+    optionSelect();
     optionA.style.border = "none";
     optionB.style.border = "none";
     optionC.style.border = "none";
