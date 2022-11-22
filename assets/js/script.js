@@ -60,7 +60,7 @@ function selectOption() {
 
 // answer submission timout and correct/incorrect answer highlight
 function selectOptionTimeout() {
-    setTimeout(ansDelay, 100);
+    setTimeout(ansDelay, 1000);
 }
 
 // answer submission timout and correct/incorrect answer highlight
@@ -78,7 +78,7 @@ function ansDelay () {
         alert ("Please choose an answer.");
     }
 
-    setTimeout(checkAnswer, 100);
+    setTimeout(checkAnswer, 1000);
 }
 
 // clears highlighted answer options
@@ -131,7 +131,7 @@ function checkAnswer() {
     } 
     
     response = "";
-    setTimeout(nextQue, 200);
+    setTimeout(nextQue, 2000);
     
 }
 
