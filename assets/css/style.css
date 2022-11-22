@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    overflow-x: hidden
+    overflow: hidden
 }
 
 body {
@@ -22,7 +22,7 @@ h1 {
     font-size: 1.5rem;
     text-align: center;
     color: #ffffff;
-    margin-top: 5vh;
+    margin-top: 10vh;
     margin-bottom: 5vh;
 }
 
@@ -37,6 +37,7 @@ h1 {
 /* game container */
 #game {
     display: none;
+    margin-top: 5vh;
 }
 
 /* score area */
@@ -87,15 +88,6 @@ button:hover {
     left: 25%;
 }
 
-/* submit button*/
-#submit {
-    position: relative;
-    height: 6vh;
-    width: 50%;
-    float: right;
-    top: 50px;
-}
-
 /* answer response container */
 #answer-response-cont {
     height: 100vh;
@@ -107,19 +99,19 @@ button:hover {
 /* text response */
 #answer-text-cont {
     position: relative;
-    top: 20%;
+    top: 40%;
 }
 
-/* next question button container */
+/* finish quiz button container */
 #fin-quiz-cont {
-    height: 60vh;
+    height: 100vh;
     display: none;
 }
 
-/* next question button */
+/* finish quiz button */
 #fin-quiz {
     position: relative;
-    top: 30vh;
+    top: 50vh;
     width: 30%;
     left: 35%;
     text-align: center;
@@ -130,6 +122,7 @@ button:hover {
 @media screen and (max-width: 800px){
     .quiz-box {
         width: 100vw;
+        margin: 0 5vw;
     }
     h1 {
         font-size: 1.2rem;
@@ -137,16 +130,26 @@ button:hover {
     #instructions {
         font-size: 1rem;
     }
-    #quiz-que {
-        width: 75%;
-        position: relative;
-        left: 12.5%;
-    }
     .score-area {
         text-align: center;
         margin-top: 3vh;
     }
     .scores {
         font-size: .9rem;
+    }
+    .btn {
+        width: 100%;
+        left: 0%;
+    }
+    button:hover {
+    scale: .9;
+    }
+    #start {
+        width: 100%;
+        left: 0%;
+    }
+    #fin-quiz {
+        width: 100%;
+        left: 0;
     }
 }

@@ -1,6 +1,5 @@
-// answer option and submit button event listeners
+// start game button event listener
 document.getElementById("start").addEventListener("click", getQuestion);
-
 
 // answer options and buttons
 let optionA = document.getElementById("option-a");
@@ -49,11 +48,9 @@ function selectOption() {
     
     response = this.innerHTML;
     if (response === questions[i].answer){
-        this.style.backgroundColor = "green";
-        this.style.border = "8px solid yellow";
+        this.style.backgroundColor = "cyan";
     }   else {
         this.style.backgroundColor = "red";
-        this.style.border = "8px solid yellow";
     }
 
     removeOptionSelect();
@@ -63,29 +60,25 @@ function selectOption() {
 
 // answer submission timout and correct/incorrect answer highlight
 function selectOptionTimeout() {
-    timeout = setTimeout(myTimeout, 1000);
+    setTimeout(ansDelay, 100);
 }
 
 // answer submission timout and correct/incorrect answer highlight
-function myTimeout() {
+function ansDelay () {
 
     if (optionA.innerHTML === questions[i].answer){
         optionA.style.backgroundColor = "green";
-        optionA.style.borderColor = "green";
     }   else if (optionB.innerHTML === questions[i].answer){
         optionB.style.backgroundColor = "green";
-        optionB.style.borderColor = "green";
     }   else if (optionC.innerHTML === questions[i].answer){
         optionC.style.backgroundColor = "green";
-        optionC.style.borderColor = "green";
     }   else if (optionD.innerHTML === questions[i].answer){
         optionD.style.backgroundColor = "green";
-        optionD.style.borderColor = "green";
     }   else {
         alert ("Please choose an answer.");
     }
 
-    timeout = setTimeout(checkAnswer, 1000);
+    setTimeout(checkAnswer, 100);
 }
 
 // clears highlighted answer options
@@ -138,7 +131,7 @@ function checkAnswer() {
     } 
     
     response = "";
-    timeout = setTimeout(nextQue, 2000);
+    setTimeout(nextQue, 200);
     
 }
 
