@@ -1,25 +1,33 @@
 // start game button event listener
-document.getElementById("start").addEventListener("click", getQuestion);
+document.getElementById("start").addEventListener("click", startGame);
 
 // answer options and buttons
-let optionA = document.getElementById("option-a");
-let optionB = document.getElementById("option-b");
-let optionC = document.getElementById("option-c");
-let optionD = document.getElementById("option-d");
-let finQuiz = document.getElementById("fin-quiz");
+const optionA = document.getElementById("option-a");
+const optionB = document.getElementById("option-b");
+const optionC = document.getElementById("option-c");
+const optionD = document.getElementById("option-d");
+const finQuiz = document.getElementById("fin-quiz");
 
 //question text
-let queText = document.getElementById("quiz-que");
+const queText = document.getElementById("quiz-que");
 
 // score counters
-let correctScore = document.getElementById("score");
-let incorrectScore = document.getElementById("incorrect");
+const correctScore = document.getElementById("score");
+const incorrectScore = document.getElementById("incorrect");
 
 // question counter
 var i = 0;
 
 // response variable
 var response = "";
+
+// shuffles questions, loads game
+function startGame () {
+
+    shuffleArray(questions);
+    getQuestion();
+
+}
 
 // answer event listeners
 function optionSelect () {
@@ -89,6 +97,14 @@ function clearOptions () {
     optionC.style.backgroundColor = "#531aff";
     optionD.style.backgroundColor = "#531aff";
 
+}
+
+// shuffles question array to randomise question order
+function shuffleArray(array) {
+    for (let i = questions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 // gets question from array via index  
@@ -178,6 +194,6 @@ function resetQuiz () {
     incorrectScore.innerHTML = "0";
     correctScore.innerHTML = "0";
     finQuiz.removeEventListener("click", resetQuiz);
-    getQuestion ();
+    startGame();
     
 }
