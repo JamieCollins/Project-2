@@ -90,6 +90,7 @@ button:hover {
     scale: 1;
 }
 
+/* tv png */
 #tv-image {
     position: relative;
     left: 30px;
@@ -142,6 +143,10 @@ button:hover {
         width: 100vw;
         margin: 0 5vw;
     }
+    #start-screen{
+        width: 100vw;
+        padding: 0 5vw;
+    }
     h1 {
         font-size: 1.2rem;
     }
@@ -159,19 +164,19 @@ button:hover {
         margin: 0 5vw;
     }
     #answer-text-cont {
-    position: relative;
-    top: 20%;
+        position: relative;
+        top: 20%;
 }
     .btn {
         width: 100%;
         left: 0%;
     }
     button:hover {
-    scale: .9;
+        scale: .9;
     }
     #start {
         width: 100%;
-        left: 0%;
+        left: 0;
     }
     #fin-quiz {
         width: 100%;
