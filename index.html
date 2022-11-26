@@ -15,7 +15,7 @@
 
         <!-- game title -->
         <div class="game-title">
-            <h1>Tv and Movie Quiz</h1>
+            <h1>TV and Movie Quiz<img src="assets/images/tv.png" alt="Television" style="width:60px;height:60px" id="tv-image"></h1>
         </div>
 
         <!-- start screen -->
@@ -24,7 +24,7 @@
             <!-- instructions -->
             <div>
                 <h2 id="instructions">Game instructions: Please read the question and then choose the correct answer out of one of the four options provided 
-                    by clicking your selection with the cursor. If your chosen option is correct it will turn green from cyan, if it is wrong it will turn 
+                    by clicking your selection with the cursor. If your chosen option is correct it will turn green, if it is wrong it will turn 
                     red and the correct answer will then be displayed in green. At the end of the quiz you can generate your results!</h2>
             </div>
 
@@ -38,9 +38,9 @@
 
             <!-- game score -->
             <div class="score-area">
-                <p class="scores">Question number: <span id="que-number"></span></p>
                 <p class="scores">Current Score: <span id="score">0</span></p>
                 <p class="scores">High Score: <span id="high-score">0</span></p>
+                <p id="num-counter">Question <span id="que-number"></span></p>
             </div>
 
             <!-- quiz container -->
@@ -48,15 +48,15 @@
 
                 <!-- game question -->
                 <div class="question-area">
-                    <h1 id="quiz-que"></h1>
+                    <p id="quiz-que"></p>
                 </div>
 
                 <!-- answer options -->
                 <div id="answer-area">
-                    <button class="btn"id="option-a"></button>
-                    <button class="btn"id="option-b"></button>
-                    <button class="btn"id="option-c"></button>
-                    <button class="btn"id="option-d"></button>
+                    <button class="btn" id="option-a"></button>
+                    <button class="btn" id="option-b"></button>
+                    <button class="btn" id="option-c"></button>
+                    <button class="btn" id="option-d"></button>
                 </div>
 
             </div>
@@ -68,7 +68,7 @@
 
         <!-- answer text -->
         <div id="answer-text-cont">
-            <h1 id="text-response"></h1>
+            <p id="text-response"></p>
         </div>
 
         <!-- answer button -->

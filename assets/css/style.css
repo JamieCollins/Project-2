@@ -10,7 +10,7 @@ body {
     background-color: #8c66ff;
 }
 
-h1 {
+h1, #text-response, #quiz-que {
     font-size: 1.8rem;
     text-align: center;
     color: #ffffff;
@@ -38,12 +38,22 @@ h1 {
 #game {
     display: none;
     margin-top: 5vh;
+    text-align: center;
 }
 
 /* score area */
 .score-area {
     font-size: 1.2rem;
     color: #ece6ff;
+    text-align: center;
+}
+
+.scores {
+    text-align: left;
+}
+
+#num-counter {
+    font-size: 1.4rem;
 }
 
 /* quiz box container */
@@ -69,7 +79,6 @@ h1 {
     height: 12vh;
     width: 75%;
     position: relative;
-    left: 10%;
     text-align: center;
     font-size: 20px;
     background-color: #531aff;
@@ -79,6 +88,12 @@ h1 {
 
 button:hover {
     scale: 1;
+}
+
+#tv-image {
+    position: relative;
+    left: 30px;
+    top: 10px;
 }
 
 /* start game button*/
@@ -99,7 +114,7 @@ button:hover {
 /* text response */
 #answer-text-cont {
     position: relative;
-    top: 40%;
+    top: 33.3%;
 }
 
 /* finish quiz button container */
@@ -131,11 +146,12 @@ button:hover {
         font-size: 1rem;
     }
     .score-area {
-        text-align: center;
         margin-top: 3vh;
     }
     .scores {
         font-size: .9rem;
+        position: relative;
+        left: 10%;
     }
     .btn {
         width: 100%;

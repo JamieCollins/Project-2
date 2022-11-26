@@ -1,5 +1,5 @@
 // retrieves stored high score from browser on load
-document.addEventListener("DOMContentLoaded", getHighScore)
+document.addEventListener("DOMContentLoaded", getHighScore);
 
 // start game button event listener
 document.getElementById("start").addEventListener("click", startGame);
@@ -76,7 +76,7 @@ function selectOption() {
     clearOptions();
     response = this.innerHTML;
     if (response === questions[i].answer){
-        this.style.backgroundColor = "cyan";
+        this.style.backgroundColor = "#ffcc00";
     }   else {
         this.style.backgroundColor = "red";
     }
@@ -108,13 +108,13 @@ function clearOptions () {
 // answer submission timout and correct/incorrect answer highlight
 function ansDelay () {
     if (optionA.innerHTML === questions[i].answer){
-        optionA.style.backgroundColor = "green";
+        optionA.style.backgroundColor = "#00e600";
     }   else if (optionB.innerHTML === questions[i].answer){
-        optionB.style.backgroundColor = "green";
+        optionB.style.backgroundColor = "#00e600";
     }   else if (optionC.innerHTML === questions[i].answer){
-        optionC.style.backgroundColor = "green";
+        optionC.style.backgroundColor = "#00e600";
     }   else if (optionD.innerHTML === questions[i].answer){
-        optionD.style.backgroundColor = "green";
+        optionD.style.backgroundColor = "#00e600";
     }   else {
         alert ("Please choose an answer.");
     }
@@ -128,13 +128,13 @@ function checkAnswer() {
         correctScore.innerHTML++;
         if (correctScore.innerHTML >= highScore.innerHTML){
             highScore.innerHTML = correctScore.innerHTML;
-        };
+        }
         localStorage.setItem("highScore", highScore.innerHTML);
         i++;
         document.getElementById("container").style.display = "none";
         document.getElementById("answer-response-cont").style.display = "block";
         document.getElementById("text-response").innerHTML = "Congratulations, that was the correct answer!";
-        endQuiz();
+        // endQuiz();
     }   else {
         document.getElementById("container").style.display = "none";
         document.getElementById("answer-response-cont").style.display = "block";
