@@ -1,5 +1,5 @@
 // retrieves stored high score from browser on load
-document.addEventListener("DOMContentLoaded", getHighScore);
+document.addEventListener("DOMContentLoaded", getHighScore)
 
 // start game button event listener
 document.getElementById("start").addEventListener("click", startGame);
@@ -24,81 +24,20 @@ var i = 0;
 // response variable
 var response = "";
 
+// retrieves stored high score from browser on load
+function getHighScore() {
+
+    storedHighScore = localStorage.getItem("highScore");
+    if (storedHighScore != undefined){
+        highScore.innerHTML = storedHighScore;
+   }
+}
+
 // shuffles questions, loads game
 function startGame () {
 
     shuffleArray(questions);
     getQuestion();
-
-}
-
-// answer event listeners
-function optionSelect () {
-
-    document.getElementById("option-a").addEventListener("click", selectOption);
-    document.getElementById("option-b").addEventListener("click", selectOption);
-    document.getElementById("option-c").addEventListener("click", selectOption);
-    document.getElementById("option-d").addEventListener("click", selectOption);
-
-}
-
-// removes answer event listeners once option is submitted
-function removeOptionSelect () {
-
-    document.getElementById("option-a").removeEventListener("click", selectOption);
-    document.getElementById("option-b").removeEventListener("click", selectOption);
-    document.getElementById("option-c").removeEventListener("click", selectOption);
-    document.getElementById("option-d").removeEventListener("click", selectOption);
-
-}
-
-// highlights option selected by user and assigns data to response
-function selectOption() {
-
-    clearOptions();
-    
-    response = this.innerHTML;
-    if (response === questions[i].answer){
-        this.style.backgroundColor = "cyan";
-    }   else {
-        this.style.backgroundColor = "red";
-    }
-
-    removeOptionSelect();
-    selectOptionTimeout();
-
-}
-
-// answer submission timout and correct/incorrect answer highlight
-function selectOptionTimeout() {
-    setTimeout(ansDelay, 100);
-}
-
-// answer submission timout and correct/incorrect answer highlight
-function ansDelay () {
-
-    if (optionA.innerHTML === questions[i].answer){
-        optionA.style.backgroundColor = "green";
-    }   else if (optionB.innerHTML === questions[i].answer){
-        optionB.style.backgroundColor = "green";
-    }   else if (optionC.innerHTML === questions[i].answer){
-        optionC.style.backgroundColor = "green";
-    }   else if (optionD.innerHTML === questions[i].answer){
-        optionD.style.backgroundColor = "green";
-    }   else {
-        alert ("Please choose an answer.");
-    }
-
-    setTimeout(checkAnswer, 100);
-}
-
-// clears highlighted answer options
-function clearOptions () {
-
-    optionA.style.backgroundColor = "#531aff";
-    optionB.style.backgroundColor = "#531aff";
-    optionC.style.backgroundColor = "#531aff";
-    optionD.style.backgroundColor = "#531aff";
 
 }
 
@@ -126,6 +65,76 @@ function getQuestion () {
     optionC.style.border = "none";
     optionD.style.border = "none";
         
+}
+
+// answer event listeners
+function optionSelect () {
+
+    document.getElementById("option-a").addEventListener("click", selectOption);
+    document.getElementById("option-b").addEventListener("click", selectOption);
+    document.getElementById("option-c").addEventListener("click", selectOption);
+    document.getElementById("option-d").addEventListener("click", selectOption);
+
+}
+
+// highlights option selected by user and assigns data to response
+function selectOption() {
+
+    clearOptions();
+    
+    response = this.innerHTML;
+    if (response === questions[i].answer){
+        this.style.backgroundColor = "cyan";
+    }   else {
+        this.style.backgroundColor = "red";
+    }
+
+    removeOptionSelect();
+    selectOptionTimeout();
+
+}
+
+// answer submission timout and correct/incorrect answer highlight
+function selectOptionTimeout() {
+    setTimeout(ansDelay, 100);
+}
+
+// removes answer event listeners once option is submitted
+function removeOptionSelect () {
+
+    document.getElementById("option-a").removeEventListener("click", selectOption);
+    document.getElementById("option-b").removeEventListener("click", selectOption);
+    document.getElementById("option-c").removeEventListener("click", selectOption);
+    document.getElementById("option-d").removeEventListener("click", selectOption);
+
+}
+
+// clears highlighted answer options
+function clearOptions () {
+
+    optionA.style.backgroundColor = "#531aff";
+    optionB.style.backgroundColor = "#531aff";
+    optionC.style.backgroundColor = "#531aff";
+    optionD.style.backgroundColor = "#531aff";
+
+}
+
+// answer submission timout and correct/incorrect answer highlight
+function ansDelay () {
+
+    if (optionA.innerHTML === questions[i].answer){
+        optionA.style.backgroundColor = "green";
+    }   else if (optionB.innerHTML === questions[i].answer){
+        optionB.style.backgroundColor = "green";
+    }   else if (optionC.innerHTML === questions[i].answer){
+        optionC.style.backgroundColor = "green";
+    }   else if (optionD.innerHTML === questions[i].answer){
+        optionD.style.backgroundColor = "green";
+    }   else {
+        alert ("Please choose an answer.");
+    }
+
+    setTimeout(checkAnswer, 100);
 }
 
 // checks user answer against stored array answer, increments score accordingly, gets next question, clears user answer
@@ -166,14 +175,6 @@ function nextQue () {
     
 }
 
-// retrieves stored high score from browser on load
-function getHighScore() {
-
-    let storedHighScore = localStorage.getItem("highScore");
-    storedHighScore = highScore.innerHTML;
-
-}
-
 // checks if current question is the last
 function endQuiz () {
 
@@ -206,6 +207,7 @@ function resetQuiz () {
     finQuiz.style.display = "none";
     correctScore.innerHTML = "0";
     finQuiz.removeEventListener("click", resetQuiz);
+    i = 0;
     startGame();
     
 }
