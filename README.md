@@ -72,6 +72,12 @@ Button to restart game. Reseets question counter and shuffles questions.
 
 ## TESTING
 
+![Responsiveness](assets/images/readme-images/responsive.png?raw=true "responsiveness")
+
+Site responsiveness. Site is made to be responsive across all screen sizes.
+
+![HTML validation](assets/images/readme-images/html-val.png?raw=true "html-validation")
+
 HTML testing: All .html pages passed validation with no errors.
 
 ![HTML validation](assets/images/readme-images/html-val.png?raw=true "html-validation")
