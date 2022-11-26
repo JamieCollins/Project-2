@@ -135,6 +135,9 @@ button:hover {
 /* media queries */
 
 @media screen and (max-width: 800px){
+    h1, #text-response, #quiz-que {
+        font-size: 1.4rem;
+    }
     .quiz-box {
         width: 100vw;
         margin: 0 5vw;
@@ -148,11 +151,17 @@ button:hover {
     .score-area {
         margin-top: 3vh;
     }
-    .scores {
+    .scores, #num-counter {
         font-size: .9rem;
-        position: relative;
-        left: 10%;
+        text-align: center;
     }
+    .question-area {
+        margin: 0 5vw;
+    }
+    #answer-text-cont {
+    position: relative;
+    top: 20%;
+}
     .btn {
         width: 100%;
         left: 0%;
@@ -167,5 +176,17 @@ button:hover {
     #fin-quiz {
         width: 100%;
         left: 0;
+    }
+    #quiz-que {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 500px){
+    #quiz-que {
+        font-size: 1.25rem;
+    }
+    #instructions {
+        font-size: .8rem;
     }
 }
