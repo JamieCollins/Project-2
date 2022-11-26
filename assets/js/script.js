@@ -1,3 +1,6 @@
+// retrieves stored high score from browser on load
+document.addEventListener("DOMContentLoaded", getHighScore);
+
 // start game button event listener
 document.getElementById("start").addEventListener("click", startGame);
 
@@ -13,7 +16,7 @@ const queText = document.getElementById("quiz-que");
 
 // score counters
 const correctScore = document.getElementById("score");
-const incorrectScore = document.getElementById("incorrect");
+const highScore = document.getElementById("high-score");
 
 // question counter
 var i = 0;
@@ -68,7 +71,7 @@ function selectOption() {
 
 // answer submission timout and correct/incorrect answer highlight
 function selectOptionTimeout() {
-    setTimeout(ansDelay, 1000);
+    setTimeout(ansDelay, 100);
 }
 
 // answer submission timout and correct/incorrect answer highlight
@@ -86,7 +89,7 @@ function ansDelay () {
         alert ("Please choose an answer.");
     }
 
-    setTimeout(checkAnswer, 1000);
+    setTimeout(checkAnswer, 100);
 }
 
 // clears highlighted answer options
@@ -132,13 +135,16 @@ function checkAnswer() {
 
     if (response === questions[i].answer){
         correctScore.innerHTML++;
+        if (correctScore.innerHTML >= highScore.innerHTML){
+            highScore.innerHTML = correctScore.innerHTML;
+        };
+        localStorage.setItem("highScore", highScore.innerHTML);
         i++;
         document.getElementById("container").style.display = "none";
         document.getElementById("answer-response-cont").style.display = "block";
         document.getElementById("text-response").innerHTML = "Congratulations, that was the correct answer!";
         endQuiz();
     }   else {
-        incorrectScore.innerHTML++;
         document.getElementById("container").style.display = "none";
         document.getElementById("answer-response-cont").style.display = "block";
         document.getElementById("text-response").innerHTML = "Unfortunately that was not the correct answer.";
@@ -147,7 +153,7 @@ function checkAnswer() {
     } 
     
     response = "";
-    setTimeout(nextQue, 2000);
+    setTimeout(nextQue, 200);
     
 }
 
@@ -158,6 +164,14 @@ function nextQue () {
     document.getElementById("answer-response-cont").style.display = "none";
     document.getElementById("container").style.display = "block";
     
+}
+
+// retrieves stored high score from browser on load
+function getHighScore() {
+
+    let storedHighScore = localStorage.getItem("highScore");
+    storedHighScore = highScore.innerHTML;
+
 }
 
 // checks if current question is the last
@@ -190,10 +204,9 @@ function resetQuiz () {
     document.getElementById("answer-response-cont").style.display = "none";
     document.getElementById("container").style.display = "block";
     finQuiz.style.display = "none";
-    i = 0;
-    incorrectScore.innerHTML = "0";
     correctScore.innerHTML = "0";
     finQuiz.removeEventListener("click", resetQuiz);
     startGame();
     
 }
+
