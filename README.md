@@ -2,7 +2,7 @@
 
 ## ABOUT
 
-A simple quiz game using HTML, CSS and Javascript where the questions are all based on Tv and Movie Trivia. The quiz will run through when started with the only other input the user will need to do is actually selecting one of the four provided answer options. The game will then give feedback on wether the user submitteed the correct answer or not. At the end of the quiz(when there or no more questions to pull) the game will then give you an option to finish quiz which will display your results, including as a percentage. The colours for the game were inspired by television series "The Simspons".
+A simple quiz game using HTML, CSS and Javascript where the questions are all based on Tv and Movie Trivia. The quiz will run through when started with the only other input the user will need to do is by selecting one of the four provided answer options. The game will then give feedback on wether the user submitted the correct answer or not. At the end of the quiz(when there or no more questions to pull) the game will then give you an option to finish quiz which will display your results, including as a percentage. The colours for the game were inspired by television series "The Simspons".
 
 ## FEATURES
 
